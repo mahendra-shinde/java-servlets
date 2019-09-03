@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="/FormDemo/resources/style1.css"/>
 </head>
 <body>
+<h2>Add new product</h2>
 <form action=add-product.do method="post"> 
 Product ID : <input type="number" name="id" /><br/>
 Product name: <input type="text" name="pname"/><br/>
@@ -12,6 +14,6 @@ Quantity : <input type="number" name="qty" /><br/>
 Rate : <input type="number" name="rate"/><br/>	
 <input type="submit" value="Save"/>	
 </form>
-<a href=list-products.do>List All</a>
+<a href="list-products.jsp">List All</a>
 </body>
 </html>
