@@ -1,4 +1,4 @@
-package com.mahendra;
+package com.mahendra.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.mahendra.daos.ProductDAO;
+import com.mahendra.entities.Product;
 
 /**
  * Servlet implementation class AddProductServlet
@@ -41,12 +44,22 @@ public class AddProductServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		//Request parameter could be GET or POST parameter
 		// All Request parameters are ALWAYS treated as STRINGS
+		String pid = request.getParameter("id");
+		int id = Integer.parseInt(pid);
 		String pname = request.getParameter("pname");
 		String sqty = request.getParameter("qty");
 		int qty = Integer.parseInt(sqty);
 		String srate = request.getParameter("rate");
 		double rate = Double.parseDouble(srate);
 		out.println("Your request has been accepted!");
+		ProductDAO dao = new ProductDAO();
+		try {
+		dao.save(new Product(id,pname, rate, qty));
+		out.println("Record saved!");
+		}catch(RuntimeException ex) {
+			out.println("Record failed to save \n"+ex.getMessage());
+			ex.printStackTrace();
+		}
 		out.print("Name: "+pname+", quantity: "+qty+" rate: "+rate);
 		out.close();
 	}
