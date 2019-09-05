@@ -30,7 +30,8 @@ public class IndexServlet extends HttpServlet {
 		// getServletContext().getRealPath("/WEB-INF/data/mydata.csv"));
 
 	 String datafile = getServletContext().getRealPath("/WEB-INF/data/mydata.csv");
-	 ProductDAO dao = new ProductDAO(datafile); List<Product> products = dao.getAll();
+	 ProductDAO dao = new ProductDAO(datafile); 
+	 List<Product> products = dao.getAll();
 	 request.setAttribute("products", products); RequestDispatcher view =
 	 request.getRequestDispatcher("list.jsp"); view.forward(request, response);
 	

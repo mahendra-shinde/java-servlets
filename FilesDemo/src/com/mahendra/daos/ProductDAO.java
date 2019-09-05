@@ -15,6 +15,11 @@ public class ProductDAO {
 		this.datafile = datafile;
 	}
 
+	/**
+	 * Write single record to file and add line break at the end
+	 * @param product
+	 * @throws IOException
+	 */
 	public void save(Product product) throws IOException{
 		FileWriter out = new FileWriter(datafile,true);
 		out.write(convertFrom(product));
@@ -23,6 +28,11 @@ public class ProductDAO {
 		out.close();
 	}
 
+	/**
+	 * Read all records from CSV file
+	 * @return
+	 * @throws IOException
+	 */
 	public List<Product> getAll()throws IOException {
 		List<Product> products = new LinkedList<Product>();
 		BufferedReader br = new BufferedReader(new FileReader(datafile));
@@ -36,6 +46,11 @@ public class ProductDAO {
 		return products;
 	}
 
+	/**
+	 * Convert Product instance into String (Single line for CSV file using DELIMITER to seperate fields
+	 * @param prd Product instance
+	 * @return String as CSV record 
+	 */
 	private String convertFrom(Product prd) {
 		StringBuilder line = new StringBuilder();
 		
@@ -49,7 +64,11 @@ public class ProductDAO {
 		
 		return line.toString();
 	}
-	
+	/**
+	 * Convert String (line inside CSV file) into Product instance
+	 * @param row Single line from CSV file as String 
+	 * @return product object
+	 */
 	private Product convertFrom(String row) {
 		if(row.trim().isEmpty())
 			return null;
