@@ -82,3 +82,43 @@
         }
     }
     ```
+
+5.  Create a new servlet 
+
+    ```yaml
+    Servlet-Classname:  FindResultServlet
+    Package-Name:       com.mahendra.servlets
+    URL-Mapping:        /find-result
+    ```
+
+6.  Add following lines inside `doGet` method of your servlet:
+
+    ```java
+    //Get Singleton instance of ResultService
+    ResultService service = ResultService.getResultService();
+    String rollno = request.getParameter("rollno");
+    if(rollno==null || rollno.trim().length()<1) {
+        System.out.println("No rollno found, redirecting back to HTML...");
+        response.sendRedirect("index.htm");			
+    }
+    int rollNo = 101;
+    try {
+        rollNo = Integer.parseInt(rollno);
+        Result result = service.find(rollNo);
+        String msg = "result found!";
+        if(result == null) {
+            msg = "Results not available for rollnumber "+rollNo;
+        }else {
+            request.setAttribute("result", result);
+        }
+        request.setAttribute("msg", msg);
+        
+        RequestDispatcher view=request.getRequestDispatcher("result.jsp");
+        view.forward(request, response);
+        
+    }catch(NumberFormatException ex) {
+        System.out.println("Invalid rollno, redirecting back to HTML...");
+        response.sendRedirect("index.htm");
+    }
+    ```
+7.  
