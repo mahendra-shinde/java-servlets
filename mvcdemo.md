@@ -88,7 +88,7 @@
     ```yaml
     Servlet-Classname:  FindResultServlet
     Package-Name:       com.mahendra.servlets
-    URL-Mapping:        /find-result
+    URL-Mapping:        /check-result
     ```
 
 6.  Add following lines inside `doGet` method of your servlet:
@@ -121,4 +121,27 @@
         response.sendRedirect("index.htm");
     }
     ```
-7.  
+7.  Create new JSP file in `WebContent` directory.
+
+    ```jsp
+    <%@ page language="java" contentType="text/html;charset=UTF-8"      pageEncoding="UTF-8"%>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <%@ page import="com.mahendra.entities.Result" %>
+    <meta charset="UTF-8">
+    <title>The Result page!</title>
+    </head>
+    <body>
+    <h3><%=request.getAttribute("msg") %></h3>
+    <%
+    Object obj = request.getAttribute("result"); 
+    if(obj!=null){
+        Result result = (Result)obj;
+        out.println("Hey "+result.getName()+" your result is <b>"+result.getResult()+"</b>");
+    } %>
+    </body>
+    </html>
+    ```
+
+8.  Go back to `index.htm` file and run application on server.
