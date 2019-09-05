@@ -36,7 +36,8 @@ public class FindResultServlet extends HttpServlet {
 		String rollno = request.getParameter("rollno");
 		if(rollno==null || rollno.trim().length()<1) {
 			System.out.println("No rollno found, redirecting back to HTML...");
-			response.sendRedirect("index.htm");			
+			response.sendRedirect("index.htm");		
+	        return; //fixing a BUG that prevents next lines to work	 (Server ERROR 500, response closed!)
 		}
 		int rollNo = 101;
 		try {
@@ -56,6 +57,7 @@ public class FindResultServlet extends HttpServlet {
 		}catch(NumberFormatException ex) {
 			System.out.println("Invalid rollno, redirecting back to HTML...");
 			response.sendRedirect("index.htm");
+	       
 		}
 	}
 
