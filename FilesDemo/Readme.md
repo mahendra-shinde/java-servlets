@@ -11,7 +11,7 @@
 		//Getters and Setters...
 		//Parameterized and Empty constructor...
 	```
-4.	Create a DAO Class `com.mahendra.daos.ProductDAO`	
+2.	Create a DAO Class `com.mahendra.daos.ProductDAO`	
 
 	```java
 	public class ProductDAO {
@@ -96,7 +96,7 @@
 	}
 		
 	```
-5.	Create new Servlet `com.mahendra.servlets.IndexServlet` with URL pattern `index.htm`
+3.	Create new Servlet `com.mahendra.servlets.IndexServlet` with URL pattern `index.htm`
 
 	```java
 	@WebServlet("/index.htm")
@@ -118,14 +118,14 @@
 	}
 	```
 
-6.	Copy following TWO files into WEB-INF/lib directory
+4.	Copy following TWO files into WEB-INF/lib directory
 	
 	1. taglib-standard-impl-1.2.5.jar
 	2. taglib-standard-spec-1.2.5.jar
 
 	> You would find these files under `examples` directory in tomcat.
 	
-7.	Create a JSP page `list.jsp` inside WebContent directory.
+5.	Create a JSP page `list.jsp` inside WebContent directory.
 
 	```jsp
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -171,7 +171,7 @@
 	</html>
 	```
 
-8.	Create another servlet `com.mahendra.servlets.AddProductServlet` with URL Mapping `add-product`.
+6.	Create another servlet `com.mahendra.servlets.AddProductServlet` with URL Mapping `add-product`.
 
 	```java
 	@WebServlet("/add-product")
@@ -204,13 +204,13 @@
 	}
 	```
 	
-9.	Add sample records in file `WEB-INF/data/mydata.csv`
+7.	Add sample records in file `WEB-INF/data/mydata.csv`
 	
 	Create the directory data inside WEB-INF and then add mydata.csv inside this data directory with following contents: 
 	> DO NOT FORGET TO ADD EMPTY LINE AT THE END OF FILE
 		
-		```csv
-		101, Nokia, 10, 7600
-		102, One Plus 2, 5, 14000
-		
-		```
+	```csv
+	101, Nokia, 10, 7600
+	102, One Plus 2, 5, 14000
+	
+	```
