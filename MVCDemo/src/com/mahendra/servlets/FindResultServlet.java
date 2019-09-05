@@ -15,7 +15,7 @@ import com.mahendra.services.ResultService;
 /**
  * Servlet implementation class FindResultServlet
  */
-@WebServlet("/find-result")
+@WebServlet("/check-result")
 public class FindResultServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,7 +31,6 @@ public class FindResultServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		//Get Singleton instance of ResultService
 		ResultService service = ResultService.getResultService();
 		String rollno = request.getParameter("rollno");
