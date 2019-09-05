@@ -203,3 +203,14 @@
 	
 	}
 	```
+	
+9.	Add sample records in file `WEB-INF/data/mydata.csv`
+	
+	Create the directory data inside WEB-INF and then add mydata.csv inside this data directory with following contents: 
+	> DO NOT FORGET TO ADD EMPTY LINE AT THE END OF FILE
+		
+		```csv
+		101, Nokia, 10, 7600
+		102, One Plus 2, 5, 14000
+		
+		```
