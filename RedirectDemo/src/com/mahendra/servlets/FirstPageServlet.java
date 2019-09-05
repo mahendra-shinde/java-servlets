@@ -38,10 +38,10 @@ public class FirstPageServlet extends HttpServlet {
 		
 		//Multiple REQUESTs to same USER share the same SESSION
 		HttpSession session = request.getSession();
-		
+		System.out.println("FirstServlet Session ID: "+session.getId());
 		session.setAttribute("name", "Tony Stark");
 		session.setAttribute("job", "Iron Man");
-		
+		//session.invalidate();
 		response.sendRedirect("second.htm");
 		out.close();
 	}

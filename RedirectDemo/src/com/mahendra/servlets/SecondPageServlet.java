@@ -34,6 +34,7 @@ public class SecondPageServlet extends HttpServlet {
 		response.setContentType("text/plain");
 		out.println("Reading values from session scope");
 		HttpSession session = request.getSession();
+		System.out.println("Second Servlet Session ID: "+session.getId());
 		String name = session.getAttribute("name").toString();
 		String job = session.getAttribute("job").toString();
 		out.println("Values fetched are name:"+name+", job:"+job);
