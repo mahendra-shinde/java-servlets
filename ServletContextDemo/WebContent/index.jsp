@@ -44,6 +44,7 @@
 		case "Cats":
 			cats++;
 			catCount = cats;
+			break;
 		}
 //Update Vote count in context attributes 
 		application.setAttribute("dogCount",dogCount);
