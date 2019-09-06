@@ -1,0 +1,4 @@
+2019-09-06 11:11:57,154 INFO c.m.a.Main [main] This is info message!
+2019-09-06 11:11:57,161 WARN c.m.a.Main [main] I warned you!
+2019-09-06 11:11:57,161 FATAL c.m.a.Main [main] It's now a punishable offense
+2019-09-06 11:11:57,161 DEBUG c.m.a.Main [main] Everything looks good!
